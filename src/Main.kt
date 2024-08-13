@@ -174,7 +174,7 @@ fun paperRock(){
 
         when {
             puntos1 > puntos2 -> println("$jugador1 lleva la delantera")
-            puntos2 > puntos1 -> println("$jugador2 lleva la delanteraa ")
+            puntos2 > puntos1 -> println("$jugador2 lleva la delanteraaa")
             else -> println("Es un empate con $jugador1 $puntos1 y $jugador2 $puntos2")
         }
 
