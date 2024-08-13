@@ -2,7 +2,37 @@ import kotlin.random.Random
 
 fun main() {
     paperRock()
+    tienda()
+}
+
+
 /*
+fun randomNumber(){
+    var numero: Int
+    numero = Random.nextInt(101)
+    var attemps = 3
+
+    while(attemps > 3){
+        if(attemps >= 1){
+            println("Por favor ingrese un numero, tienes $attemps")
+            numeroIngresado = readln().toInt()
+
+            when(
+                numeroIngresado > numero -> "El numero es menor",
+                numeroIngresado < numero -> "El numero es mayor",
+                numeroIngresado  == numero -> "Felicidades el numero fue exitoso "
+            )
+
+        }
+        if(attemps >= 2){
+
+        }
+    }
+}
+*/
+
+fun funcionesTest(){
+    /*
     var name = "Nicolas";
     var edad = 18;
     val x = 2
@@ -19,7 +49,7 @@ fun main() {
     //var n: integer
     if(edad >= 18){
         println("Mayor de edad con ${edad}");
-        
+
     } else {
         println("Menor de edad con ${edad}")
     }
@@ -47,6 +77,9 @@ fun main() {
 
     }
 */
+}
+
+fun tienda(){
     var nombre:String = "Nicolas";
     var nit:Int = 123456789;
     var fecha:String = "12/02/2024"
@@ -101,32 +134,7 @@ fun main() {
         println("Tu IVA es de $iva")
 
     }
-
 }
-/*
-fun randomNumber(){
-    var numero: Int
-    numero = Random.nextInt(101)
-    var attemps = 3
-
-    while(attemps > 3){
-        if(attemps >= 1){
-            println("Por favor ingrese un numero, tienes $attemps")
-            numeroIngresado = readln().toInt()
-
-            when(
-                numeroIngresado > numero -> "El numero es menor",
-                numeroIngresado < numero -> "El numero es mayor",
-                numeroIngresado  == numero -> "Felicidades el numero fue exitoso "
-            )
-
-        }
-        if(attemps >= 2){
-
-        }
-    }
-}
-*/
 
 fun paperRock(){
     val opciones = listOf("Piedra", "Papel", "Tijera")
@@ -181,6 +189,7 @@ fun paperRock(){
     }
 
 }
+
 
 
 
