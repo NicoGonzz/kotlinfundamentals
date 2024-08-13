@@ -127,6 +127,7 @@ fun randomNumber(){
     }
 }
 */
+
 fun paperRock(){
     val opciones = listOf("Piedra", "Papel", "Tijera")
 
@@ -134,9 +135,8 @@ fun paperRock(){
     var jugador2 = "Juan"
     var puntos1 = 0
     var puntos2 = 0
-    var rondas = 0
 
-    while (puntos1 < 2 && puntos2 < 2) {
+    while ((puntos1 < 2 && puntos2 < 2) || (puntos1-puntos2 < 2 && puntos2-puntos1 <2 ) ) {
         val opcionJugador1 = Random.nextInt(3)
         val opcionJugador2 = Random.nextInt(3)
 
