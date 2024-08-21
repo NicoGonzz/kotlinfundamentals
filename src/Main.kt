@@ -1,8 +1,13 @@
 import kotlin.random.Random
 
 fun main() {
-    paperRock()
-    tienda()
+   // paperRock()
+   // tienda()
+   // println(operation())
+   // operation1(12.00)
+    multipleOperations()
+
+
 }
 
 
@@ -190,6 +195,29 @@ fun paperRock(){
 
 }
 
+fun operation():Int{ //sin parametros
+    var n1 = 5
+    var n2 = 6
+    return n1/n2
+}
 
+fun operation1(x:Double){ //con parametros y sin retorno
+    var r = Math.sqrt(x)
+    println(r)
+}
+
+fun multipleOperations() {
+    val resultados = mutableListOf<Double>()
+
+    val op= Operaciones(5.0,7.0)
+    resultados.add(op.operation())
+    resultados.add(op.operation1())
+    resultados.add(op.operation2(166.00))
+    resultados.add(op.operation3(2.00))
+
+    for(resultado in resultados.withIndex()){
+        println("El resultado es de: $resultados" )
+    }
+}
 
 
