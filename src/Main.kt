@@ -6,8 +6,8 @@ fun main() {
    // println(operation())
    // operation1(12.00)
    // multipleOperations()
-    llamadasTelefonicas()
-
+   // llamadasTelefonicas()
+    sistemaGestionFacultad()
 }
 
 
@@ -264,7 +264,7 @@ fun llamadasTelefonicas() {
     println(cabinas[4].mostrarInformacion())
     println(" ")
 
-    println("\nTotal de las cabinas:")
+    println("\nTotal of cabins:")
     println(empresa.mostrarConsolidadoTotal())
 
 
@@ -272,6 +272,106 @@ fun llamadasTelefonicas() {
 
     println("\nInformación de las cabinas después de reiniciar:")
     println(cabinas[0].mostrarInformacion())
+}
+
+fun sistemaGestionFacultad(){
+    val empleados = mutableListOf<Empleados.Persona>()
+
+    val estudiante1 = Empleados.Estudiante(
+        curso = "Matemáticas",
+        nombre = "Carlos",
+        apellido = "Ramírez",
+        id = Random.nextInt(1000, 9999),
+        estado = Empleados.EstadoCivil.SOLTERO
+    )
+    val estudiante2 = Empleados.Estudiante(
+        curso = "Física",
+        nombre = "Ana",
+        apellido = "López",
+        id = Random.nextInt(1000, 9999),
+        estado = Empleados.EstadoCivil.CASADO
+    )
+
+    // Crear datos aleatorios para profesores
+    val profesor1 = Empleados.PROFESORES(
+        anioIngreso = "2015",
+        despacho = 101,
+        departamento = "Matemáticas",
+        nombre = "Jorge",
+        apellido = "Martínez",
+        id = Random.nextInt(1000, 9999),
+        estado = Empleados.EstadoCivil.CASADO
+    )
+    val profesor2 = Empleados.PROFESORES(
+        anioIngreso = "2012",
+        despacho = 202,
+        departamento = "Física",
+        nombre = "Lucía",
+        apellido = "Gómez",
+        id = Random.nextInt(1000, 9999),
+        estado = Empleados.EstadoCivil.DIVORCIADO
+    )
+
+    // Crear datos aleatorios para personal de servicio
+    val personal1 = Empleados.PERSONALSERVICIO(
+        anioIngreso = "2018",
+        despacho = 301,
+        seccion = "Limpieza",
+        nombre = "Pedro",
+        apellido = "Sánchez",
+        id = Random.nextInt(1000, 9999),
+        estado = Empleados.EstadoCivil.VIUDO
+    )
+    val personal2 = Empleados.PERSONALSERVICIO(
+        anioIngreso = "2020",
+        despacho = 302,
+        seccion = "Mantenimiento",
+        nombre = "Laura",
+        apellido = "Fernández",
+        id = Random.nextInt(1000, 9999),
+        estado = Empleados.EstadoCivil.SEPARADO
+    )
+
+    empleados.add(estudiante1)
+    empleados.add(estudiante2)
+    empleados.add(profesor1)
+    empleados.add(profesor2)
+    empleados.add(personal1)
+    empleados.add(personal2)
+
+    empleados.forEach { empleado ->
+        when (empleado) {
+            is Empleados.Estudiante -> {
+                println("Estudiante: ${empleado.nombre} ${empleado.apellido}, ID: ${empleado.id}, Estado Civil: ${empleado.estado}, Curso: ${empleado.curso}")
+            }
+            is Empleados.PROFESORES -> {
+                println("Profesor: ${empleado.nombre} ${empleado.apellido}, ID: ${empleado.id}, Estado Civil: ${empleado.estado}, Departamento: ${empleado.departamento}, Despacho: ${empleado.despacho}, Año de Ingreso: ${empleado.anioIngreso}")
+            }
+            is Empleados.PERSONALSERVICIO -> {
+                println("Personal de Servicio: ${empleado.nombre} ${empleado.apellido}, ID: ${empleado.id}, Estado Civil: ${empleado.estado}, Sección: ${empleado.seccion}, Despacho: ${empleado.despacho}, Año de Ingreso: ${empleado.anioIngreso}")
+            }
+        }
+    }
+
+    estudiante1.cambiarEstadoCivil(Empleados.EstadoCivil.CASADO)
+    profesor1.cambiarDespacho(12)
+    estudiante1.actualizarCurso("Soy el nuevo curso")
+    profesor2.cambiarDepartamento("Departamento de ciencias")
+    personal1.cambiarSeccion("Nueva seccion 2")
+
+    empleados.forEach { empleado ->
+        when (empleado) {
+            is Empleados.Estudiante -> {
+                println("\nEstudiante Actualizado: ${empleado.nombre} ${empleado.apellido}, ID: ${empleado.id}, Estado Civil: ${empleado.estado}, Curso: ${empleado.curso}")
+            }
+            is Empleados.PROFESORES -> {
+                println("Profesor Actualizado: ${empleado.nombre} ${empleado.apellido}, ID: ${empleado.id}, Estado Civil: ${empleado.estado}, Departamento: ${empleado.departamento}, Despacho: ${empleado.despacho}, Año de Ingreso: ${empleado.anioIngreso}")
+            }
+            is Empleados.PERSONALSERVICIO -> {
+                println("Personal de Servicio Actualizado: ${empleado.nombre} ${empleado.apellido}, ID: ${empleado.id}, Estado Civil: ${empleado.estado}, Sección: ${empleado.seccion}, Despacho: ${empleado.despacho}, Año de Ingreso: ${empleado.anioIngreso}")
+            }
+        }
+    }
 }
 
 /*

@@ -75,4 +75,5 @@ class Cabina {
     enum class TipoLlamada {
         LOCAL, LARGA_DISTANCIA, CELULAR
     }
+
 }
