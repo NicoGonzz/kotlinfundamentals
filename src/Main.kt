@@ -5,8 +5,8 @@ fun main() {
    // tienda()
    // println(operation())
    // operation1(12.00)
-    multipleOperations()
-
+   // multipleOperations()
+    llamadasTelefonicas()
 
 }
 
@@ -219,5 +219,81 @@ fun multipleOperations() {
         println("El resultado es de: $resultados" )
     }
 }
+
+fun llamadasTelefonicas() {
+    val cabinas = List(5) { Cabina() }
+
+    val empresa = EmpresaTelefonica(cabinas)
+
+    cabinas[0].registrarLlamada(Cabina.TipoLlamada.LOCAL, 10)
+    cabinas[0].registrarLlamada(Cabina.TipoLlamada.LARGA_DISTANCIA, 5)
+    cabinas[0].registrarLlamada(Cabina.TipoLlamada.CELULAR, 8)
+    cabinas[1].registrarLlamada(Cabina.TipoLlamada.LOCAL, 7)
+    cabinas[1].registrarLlamada(Cabina.TipoLlamada.LOCAL, 2)
+    cabinas[1].registrarLlamada(Cabina.TipoLlamada.LARGA_DISTANCIA, 10)
+    cabinas[1].registrarLlamada(Cabina.TipoLlamada.CELULAR, 15)
+    cabinas[2].registrarLlamada(Cabina.TipoLlamada.LOCAL, 20)
+    cabinas[2].registrarLlamada(Cabina.TipoLlamada.LARGA_DISTANCIA, 3)
+    cabinas[2].registrarLlamada(Cabina.TipoLlamada.CELULAR, 10)
+    cabinas[3].registrarLlamada(Cabina.TipoLlamada.LOCAL, 12)
+    cabinas[3].registrarLlamada(Cabina.TipoLlamada.LARGA_DISTANCIA, 8)
+    cabinas[3].registrarLlamada(Cabina.TipoLlamada.CELULAR, 7)
+    cabinas[4].registrarLlamada(Cabina.TipoLlamada.LOCAL, 18)
+    cabinas[4].registrarLlamada(Cabina.TipoLlamada.LARGA_DISTANCIA, 28)
+    cabinas[4].registrarLlamada(Cabina.TipoLlamada.CELULAR, 37)
+    cabinas[4].registrarLlamada(Cabina.TipoLlamada.CELULAR, 2)
+
+
+    println("First Cabin:")
+    println(cabinas[0].mostrarInformacion())
+    println(" ")
+
+    println("Second Cabin:")
+    println(cabinas[1].mostrarInformacion())
+    println(" ")
+
+    println("Third Cabin:")
+    println(cabinas[2].mostrarInformacion())
+    println(" ")
+
+    println("Fourth Cabin:")
+    println(cabinas[3].mostrarInformacion())
+    println(" ")
+
+    println("Fifth Cabin:")
+    println(cabinas[4].mostrarInformacion())
+    println(" ")
+
+    println("\nTotal de las cabinas:")
+    println(empresa.mostrarConsolidadoTotal())
+
+
+    cabinas[0].reiniciar()
+
+    println("\nInformación de las cabinas después de reiniciar:")
+    println(cabinas[0].mostrarInformacion())
+}
+
+/*
+// Class for create a Cabin
+*/
+class EmpresaTelefonica(val cabinas: List<Cabina>) {
+
+    fun mostrarConsolidadoTotal(): String {
+        val costoTotal = cabinas.sumBy { it.calcularCostoTotal() }
+        val duracionTotal = cabinas.sumBy { it.calcularDuracionTotal() }
+        val numeroTotalLlamadas = cabinas.sumBy { it.obtenerNumeroLlamadas() }
+        val costoPromedioPorMinuto = if (duracionTotal > 0) costoTotal / duracionTotal else 0
+
+        return """
+            Costo total: $costoTotal pesos
+            Duración total de llamadas: $duracionTotal minutos
+            Número total de llamadas: $numeroTotalLlamadas
+            Costo promedio por minuto: $costoPromedioPorMinuto pesos/minuto
+        """.trimIndent()
+    }
+}
+
+
 
 
